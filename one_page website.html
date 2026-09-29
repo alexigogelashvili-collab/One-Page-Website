@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Lightbox Challenge</title>
+    <style>
+        /* 4-column layout configuration (Per Prompt Tip C: 4 images = 25% width each) */
+        .row > .column {
+            padding: 0 8px;
+            float: left;
+            width: 25%;
+            box-sizing: border-box;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Thumbnail display styling */
+        .hover-shadow {
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            border-radius: 4px;
+        }
+        .hover-shadow:hover {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+        }
+        /* Hidden dark overlay modal window */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            width: 90%;
+            max-width: 800px;
+        }
+        .close {
+            color: white;
+            position: absolute;
+            top: 30px;
+            right: 35px;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover { color: #bbb; }
+        .mySlides { display: none; }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 14px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center; margin-bottom: 30px;">Flower Lightbox Gallery</h1>
+
+    <!-- Thumbnails Grid Row (Using your small images) -->
+    <div class="row">
+        <div class="column"><img src="flower1_small.png" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="Flower 1"></div>
+        <div class="column"><img src="flower2_small.png" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="Flower 2"></div>
+        <div class="column"><img src="flower3_small.png" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="Flower 3"></div>
+        <div class="column"><img src="flower4_small.png" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="Flower 4"></div>
+    </div>
+
+    <!-- Lightbox Pop-up Overlay Component -->
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <!-- Slides containing large images -->
+            <div class="mySlides"><div class="numbertext">1 / 4</div><img src="flower1_large.png" style="width:100%"></div>
+            <div class="mySlides"><div class="numbertext">2 / 4</div><img src="flower2_large.png" style="width:100%"></div>
+            <div class="mySlides"><div class="numbertext">3 / 4</div><img src="flower3_large.png" style="width:100%"></div>
+            <div class="mySlides"><div class="numbertext">4 / 4</div><img src="flower4_large.png" style="width:100%"></div>
+           
+            <!-- Left and Right Arrows -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <!-- Links the External Script File (Per Instruction Rule 6) -->
+    <script src="JS/one_page_website.js"></script>
+</body>
+</html>
